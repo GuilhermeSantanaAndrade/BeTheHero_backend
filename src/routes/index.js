@@ -1,7 +1,11 @@
-const routes = require("express").Router();
+const mainRoutes = require("express").Router();
+const ong = require("./routesOng");
+const session = require("./routesSession");
 
-routes.get("/", (req, res, next) => {
-  return res.send("OK");
+mainRoutes.use("/ong", ong);
+mainRoutes.use("/session", session);
+mainRoutes.get("/", (req, res) => {
+  return res.send("Be The Hero API");
 });
 
-module.exports = routes;
+module.exports = mainRoutes;
