@@ -1,7 +1,7 @@
 const routes = require("express").Router();
+const controllerSession = require("../controllers/controllerSession");
+const { validate_logon } = require("./routesSession.schema");
 
-routes.get("/", (req, res, next) => {
-  return res.send("OK");
-});
+routes.post("/logon", validate_logon, controllerSession.logon);
 
 module.exports = routes;

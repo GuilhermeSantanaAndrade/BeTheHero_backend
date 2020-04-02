@@ -1,6 +1,6 @@
 const { celebrate, Joi, Segments } = require("celebrate");
 
-module.exports.validation_create = celebrate({
+module.exports.validate_create = celebrate({
   [Segments.BODY]: Joi.object().keys({
     name: Joi.string().required(),
     email: Joi.string()
@@ -14,13 +14,13 @@ module.exports.validation_create = celebrate({
   })
 });
 
-module.exports.validation_list = celebrate({
+module.exports.validate_list = celebrate({
   [Segments.PARAMS]: Joi.object().keys({
     id: Joi.string().required()
   })
 });
 
-module.exports.validation_update = celebrate({
+module.exports.validate_update = celebrate({
   [Segments.PARAMS]: Joi.object().keys({
     id: Joi.string().required()
   }),
@@ -37,7 +37,7 @@ module.exports.validation_update = celebrate({
   })
 });
 
-module.exports.validation_delete = celebrate({
+module.exports.validate_delete = celebrate({
   [Segments.PARAMS]: Joi.object().keys({
     id: Joi.string().required()
   })

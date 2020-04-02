@@ -4,7 +4,7 @@ const crypto = require("crypto");
 
 module.exports.listAll = async (req, res, next) => {
   try {
-    const result = await connection("ongs").select("*");
+    const result = await connection("incidents").select("*");
 
     return res.json(prepareSuccess200(result));
   } catch (errorMsg) {
@@ -16,7 +16,7 @@ module.exports.list = async (req, res, next) => {
   try {
     let { id } = req.params;
 
-    const result = await connection("ongs")
+    const result = await connection("incidents")
       .select("*")
       .where({ id: id });
 
@@ -28,11 +28,11 @@ module.exports.list = async (req, res, next) => {
 
 module.exports.create = async (req, res, next) => {
   try {
-    let { name, email, whatsapp, city, uf } = req.body;
-    let id = crypto.randomBytes(6).toString("HEX");
+    let {
+      /*TO-DO*/
+    } = req.body;
 
-    await connection("ongs").insert({
-      id: id,
+    await connection("incidents").insert({
       name: name,
       email: email,
       whatsapp: whatsapp,
@@ -48,16 +48,14 @@ module.exports.create = async (req, res, next) => {
 
 module.exports.update = async (req, res, next) => {
   try {
-    let { name, email, whatsapp, city, uf } = req.body;
+    let {
+      /*TO-DO*/
+    } = req.body;
     let { id } = req.params;
 
-    await connection("ongs")
+    await connection("incidents")
       .update({
-        name: name,
-        email: email,
-        whatsapp: whatsapp,
-        city: city,
-        uf: uf
+        /*TO-DO*/
       })
       .where({ id: id });
 
@@ -71,7 +69,7 @@ module.exports.delete = async (req, res, next) => {
   try {
     let { id } = req.params;
 
-    await connection("ongs")
+    await connection("incidents")
       .delete()
       .where({ id: id });
 
